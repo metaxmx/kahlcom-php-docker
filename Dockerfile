@@ -9,8 +9,9 @@ RUN apt-get update \
   && docker-php-ext-configure gd --with-png-dir=/usr --with-jpeg-dir=/usr \
   && docker-php-ext-install mysqli curl gd zip mbstring imap iconv \
   && rm -rf /var/lib/apt/lists/* \
-  && echo 'register_globals = Off' > /usr/local/etc/php/conf.d/squirrelmail.ini \
-  && echo 'magic_quotes_runtime = Off' >> /usr/local/etc/php/conf.d/squirrelmail.ini \
-  && echo 'magic_quotes_gpc = Off' >> /usr/local/etc/php/conf.d/squirrelmail.ini \
-  && echo 'file_upload = On' >> /usr/local/etc/php/conf.d/squirrelmail.ini \
-  && echo 'error_reporting = E_ERROR' >> /usr/local/etc/php/conf.d/squirrelmail.ini
+  && echo 'register_globals = Off' > /usr/local/etc/php/conf.d/kc.ini \
+  && echo 'magic_quotes_runtime = Off' >> /usr/local/etc/php/conf.d/kc.ini \
+  && echo 'magic_quotes_gpc = Off' >> /usr/local/etc/php/conf.d/kc.ini \
+  && echo 'file_upload = On' >> /usr/local/etc/php/conf.d/kc.ini \
+  && echo 'date.timezone = "Europe/Berlin"' >> /usr/local/etc/php/conf.d/kc.ini \
+  && echo 'error_reporting = E_ERROR ^ E_STRICT' >> /usr/local/etc/php/conf.d/kc.ini
